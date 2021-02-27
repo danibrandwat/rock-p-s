@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<body>
+
+</body>
+
+<script>
+
+    function userPlay() {
+        let userInput = prompt("Input rock paper or scissors");
+        userInput = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+        return userInput;
+    }
+
+    function computerPlay() {
+        let items = ['Rock', 'Paper', 'Scissors'];
+        return items[Math.floor(Math.random()*items.length)];
+    }
+
+let userWins = 0;
+let computerWins = 0;
+
+    function rockps(computerInput, userInput) {
+        if ((userInput === 'Rock') ||
+            (userInput === 'Paper') ||
+            (userInput === 'Scissors')) {
+            if ((computerInput === 'Rock' && userInput === 'Scissors') || 
+                (computerInput === 'Scissors' && userInput === 'Paper') ||
+                (computerInput === 'Paper' && userInput === 'Rock')) {
+                computerWins++;
+                return alert('Computer wins! \nComputer had ' + computerInput + ', user had ' + userInput + '\nCurrent score: \nComputer: ' + computerWins + ' User: ' + userWins)
+            } else if (computerInput === userInput) {
+                return alert('Tie!')
+            } else {
+                userWins++;
+                return alert('User wins! \nComputer had ' + computerInput + ', user had ' + userInput + '\nCurrent score =\nComputer: ' + computerWins + ' User: ' + userWins)
+            }
+        } else {
+            return alert('Wrong input!')
+        }
+    }
+
+ for (tries = 0; tries < 5; tries++) {
+    rockps(computerPlay(), userPlay());
+}
+
+
+
+//get input from computer and user
+//create if statements that check input from computer and user
+//if computer has rock and user scissors = computer wins
+//if computer has scissors and user paper = computer wins
+//if computer has paper and user rock = computer wins
+//else user wins
+
+</script>
